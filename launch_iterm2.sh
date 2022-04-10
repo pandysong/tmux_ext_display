@@ -52,17 +52,14 @@ tell application "iTerm2"
 	set cSession to current session of new_window
 	tell new_window
 		tell cSession
-			delay 1
-			write text "cd $wd;$cmd"
+			delay 0.5
+			write text "tmux"
+			delay 0.5
+			write text "source ~/.ext_display_server.sh"
 			delay 2
-			repeat
-				delay 0.1
-				--          display dialog cSession is at shell prompt
-				set isdone to is at shell prompt
-				if isdone then exit repeat
-			end repeat
 		end tell
 	end tell
+    set the bounds of the first window to {200, 200, 300, 250}
 end tell
 EOF
 }
